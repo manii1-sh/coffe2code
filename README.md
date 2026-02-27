@@ -1,80 +1,90 @@
-# WhatsApp AI Chatbot 🤖
+# Lavender Chatter
 
-Simple multi-language WhatsApp chatbot using Twilio and Gemini AI.
+A modern chat application built with React, TypeScript, and Supabase.
 
-## 🚀 Quick Start
+## Features
 
-### 1. Install Dependencies
-```bash
-pip install -r requirements.txt
+- Real-time chat interface
+- AI-powered responses
+- Clean and responsive UI with Tailwind CSS
+- Built with modern React patterns
+
+## Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite
+- **UI Components**: shadcn/ui, Radix UI
+- **Styling**: Tailwind CSS
+- **Backend**: Supabase
+- **State Management**: TanStack Query
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Supabase account (for backend services)
+
+### Installation
+
+1. Clone the repository:
+```sh
+git clone <your-repo-url>
+cd lavender-chatter
 ```
 
-### 2. Run Server
-```bash
-python app.py
+2. Install dependencies:
+```sh
+npm install
 ```
 
-Server starts on `http://0.0.0.0:8000`
+3. Set up environment variables:
+   - Copy `.env.example` to `.env`
+   - Add your Supabase credentials:
+     - `VITE_SUPABASE_URL`
+     - `VITE_SUPABASE_PUBLISHABLE_KEY`
+     - `VITE_SUPABASE_PROJECT_ID`
 
-### 3. Expose to Internet (for Twilio)
-Use ngrok to make your local server public:
-```bash
-ngrok http 8000
+4. Start the development server:
+```sh
+npm run dev
 ```
 
-You'll get a URL like: `https://abc123.ngrok.io`
+The app will be available at `http://localhost:8080`
 
-### 4. Configure Twilio
-1. Go to [Twilio Console](https://console.twilio.com/)
-2. Navigate to: Messaging → Try it out → Send a WhatsApp message
-3. Set webhook:
-   - **URL**: `https://abc123.ngrok.io/webhook`
-   - **Method**: POST
+## Available Scripts
 
-### 5. Test!
-Send a message to your Twilio WhatsApp number and get AI responses!
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## 💬 Example Conversations
+## Project Structure
 
-**English:**
 ```
-You: Hello, how are you?
-Bot: Hello! I'm doing great, thank you! How can I help you today?
-```
-
-**Hindi:**
-```
-You: नमस्ते, आप कैसे हैं?
-Bot: नमस्ते! मैं बहुत अच्छा हूं, धन्यवाद! मैं आपकी कैसे मदद कर सकता हूं?
-```
-
-**Marathi:**
-```
-You: नमस्कार, तुम्ही कसे आहात?
-Bot: नमस्कार! मी छान आहे, धन्यवाद! मी तुम्हाला कशी मदत करू शकतो?
+lavender-chatter/
+├── src/
+│   ├── components/     # React components
+│   ├── hooks/          # Custom React hooks
+│   ├── integrations/   # Third-party integrations
+│   ├── lib/            # Utility functions
+│   ├── pages/          # Page components
+│   └── types/          # TypeScript type definitions
+├── supabase/           # Supabase functions
+└── public/             # Static assets
 ```
 
-## 📁 Files
+## Deployment
 
-- `app.py` - Main FastAPI server
-- `.env` - Configuration (API keys)
-- `requirements.txt` - Python dependencies
+Build the project for production:
 
-## 🔧 How It Works
+```sh
+npm run build
+```
 
-1. User sends WhatsApp message
-2. Twilio receives it → forwards to your webhook
-3. Your server processes with Gemini AI
-4. AI detects language and responds
-5. Response sent back to WhatsApp
+The built files will be in the `dist` directory, ready to be deployed to any static hosting service.
 
-## ✅ Features
+## License
 
-- Multi-language support (50+ languages)
-- Session management (remembers conversation)
-- Simple, clean code
-- Easy to deploy
-
----
-
-Made with ❤️ using Twilio + Gemini AI
+MIT
